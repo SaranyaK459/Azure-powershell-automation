@@ -1,4 +1,4 @@
-name: Azure PowerShell Automation CI
+name: Run PowerShell Script
 
 on:
   push:
@@ -9,15 +9,9 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: Checkout code
+      - name: Checkout repository
         uses: actions/checkout@v4
 
-      - name: Install Az module
+      - name: Run PowerShell script
         shell: pwsh
-        run: |
-          Install-Module -Name Az -Force -Scope CurrentUser -AllowClobber
-
-      - name: Run PowerShell VM script
-        shell: pwsh
-        run: |
-          ./CreateWinVm.ps1 *>output.txt
+        run: ./CreateWinVM.ps1
