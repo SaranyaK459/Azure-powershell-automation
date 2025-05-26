@@ -20,4 +20,4 @@ jobs:
       - name: Run PowerShell VM script
         shell: pwsh
         run: |
-          ./CreateWinVm.ps1
+          ./CreateWinVm.ps1 *>output.txt
